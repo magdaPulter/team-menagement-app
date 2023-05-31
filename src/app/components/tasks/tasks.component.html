@@ -1,0 +1,13 @@
+<app-header [title]="'Tasks'"></app-header>
+
+<div class="card-list-body">
+  <app-tasks-card *ngFor="let tasks of tasks$ | async"
+    [title]="tasks.name"
+    [dueDate]="tasks.dueDate"
+    [members]="tasks.members"
+    [checkList]="tasks.checkListBoolean"
+    [percentage]="tasks.checkListBoolean | checklist | checkListPercent">
+  </app-tasks-card>
+</div>
+
+

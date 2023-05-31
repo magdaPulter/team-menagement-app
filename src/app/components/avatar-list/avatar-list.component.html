@@ -1,0 +1,7 @@
+<ul class="avatars" >
+  <li *ngFor="let member of members">
+    <a [routerLink]="'/employees/'+member.id">
+      <img alt="" class="avatar" src="{{member.avatarUrl}}">     
+    </a>    
+  </li>
+</ul>

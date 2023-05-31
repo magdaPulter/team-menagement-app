@@ -1,0 +1,37 @@
+<div class="page-header mb-4" *ngFor="let employee of employeeDetail$ | async">
+    <div class="media">
+      <img alt="Image" src="{{employee.avatarUrl}}" class="avatar avatar-lg mt-1">
+      <div class="media-body ml-3">
+        <h1 class="mb-0">{{employee.firstName}}{{employee.lastName}}</h1>
+        <p class="lead">{{employee.position}}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-tabset 
+    [tabsetTitle]="'Teams'">
+  </app-tabset>
+
+  <div class="tab-content">
+    <div class="content-list">
+        <div class="row content-list-head">
+          <div class="col-auto">
+            <h3>Teams</h3>
+          </div>
+        </div>
+        <div class="content-list-body row ">
+            <app-team-card 
+                class="col-lg-6" 
+                *ngFor="let team of memberTeam$ | async" 
+                [title]="team.name"
+                [id]="team.id"
+                [projects]="team.projects.length" 
+                [members]="team.members.length"
+                [teamMembers]="team.members"
+                [isAvatar]="true">
+
+            </app-team-card>
+        </div>
+    </div>
+  </div>
+

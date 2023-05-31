@@ -1,0 +1,15 @@
+
+<div class="card card-task">
+    <app-progress-bar 
+      class="progress" 
+      [percentage]="percentage"
+      [isColorChanged]="false">
+    </app-progress-bar>
+
+    <div class="card-body">
+      <div class="card-title">
+        <h5>{{ title }}</h5>
+        <span>Due on {{ dueDate }}</span>
+      </div>
+    </div>
+</div>

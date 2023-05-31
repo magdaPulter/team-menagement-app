@@ -1,0 +1,14 @@
+<div class="page-header" *ngFor="let team of teamDetails$ | async">
+    <h1>{{team.name}}</h1>
+    <p class="lead">{{team.description}}</p>
+    <div class="d-flex align-items-center">
+        <app-avatar-list 
+            [members]="team.members">
+        </app-avatar-list>  
+    </div>
+</div>
+<hr>
+
+<app-tabset 
+    [tabsetTitle]="'Projects'">
+</app-tabset>

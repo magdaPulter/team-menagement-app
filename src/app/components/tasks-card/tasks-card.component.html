@@ -1,0 +1,27 @@
+
+<div class="card card-task"> 
+    <app-progress-bar 
+        class="progress" 
+        [percentage]="percentage"
+        [isColorChanged]="true">
+    </app-progress-bar>
+
+    <div class="card-body">
+        <div class="card-title">
+            <h5 class="card-title">{{ title }}</h5>
+            <span class="text-small">Due on {{ dueDate | dueDate}}</span>
+        </div>
+        <div class="card-meta">
+
+            <app-avatar-list 
+                    [members]="members">
+            </app-avatar-list>
+
+            <div class="d-flex align-items-center">
+                <i class="material-icons">playlist_add_check</i>
+                <span>{{ checkList | checklist }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,14 @@
+<app-header [title]="'Teams'"></app-header>
+
+<div class="content-list-body row ">
+    <app-team-card 
+        class="col-lg-6" 
+        *ngFor="let team of teams$ | async" 
+        [title]="team.name"
+        [id]="team.id"
+        [projects]="team.projects.length" 
+        [members]="team.members.length"
+        [teamMembers]="team.members"
+        [isAvatar]="false">
+    </app-team-card>
+</div>

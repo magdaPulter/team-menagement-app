@@ -1,0 +1,12 @@
+<app-header [title]="'Projects'"></app-header>
+
+<div class="content-list-body row">
+    <app-project-card 
+        class="col-lg-6" 
+        *ngFor="let project of projects$ | async"
+        [title]="project.name"
+        [dueDate]="project.dueDate | dueDate"
+        [percentage]="project.percentage"
+        >    
+    </app-project-card>
+</div>

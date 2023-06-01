@@ -12,3 +12,24 @@
 <app-tabset 
     [tabsetTitle]="'Projects'">
 </app-tabset>
+
+<div class="tab-content">
+    <div class="content-list">
+        <div class="row content-list-head">
+            <div class="col-auto">
+            <h3>Projects</h3>
+            </div>
+        </div>
+        <div class="content-list-body row">
+            <app-project-card 
+                class="col-lg-6" 
+                *ngFor="let project of projectsInTeam$ | async"
+                [title]="project.name"
+                [dueDate]="project.dueDate | dueDate"
+                [percentage]="project.percentage"
+                [isVisible]="false"
+                >    
+            </app-project-card>
+        </div>
+    </div>
+</div>

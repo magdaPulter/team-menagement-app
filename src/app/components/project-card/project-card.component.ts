@@ -10,4 +10,5 @@ export class ProjectCardComponent {
   @Input() title! :string
   @Input() dueDate!: string 
   @Input() percentage!: number
+  @Input() isVisible!: boolean
 }

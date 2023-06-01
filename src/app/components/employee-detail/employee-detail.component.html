@@ -19,7 +19,7 @@
             <h3>Teams</h3>
           </div>
         </div>
-        <div class="content-list-body row ">
+        <div class="content-list-body row">
             <app-team-card 
                 class="col-lg-6" 
                 *ngFor="let team of memberTeam$ | async" 
@@ -29,7 +29,6 @@
                 [members]="team.members.length"
                 [teamMembers]="team.members"
                 [isAvatar]="true">
-
             </app-team-card>
         </div>
     </div>

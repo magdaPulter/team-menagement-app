@@ -1,6 +1,7 @@
 
 <div class="card card-task">
     <app-progress-bar 
+      *ngIf="isVisible"
       class="progress" 
       [percentage]="percentage"
       [isColorChanged]="false">

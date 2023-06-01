@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { combineLatest, map, Observable } from 'rxjs';
-import { EmployeeModel } from 'src/app/models/employee.model';
+import { EmployeeQueryModel } from 'src/app/query-models/employee.query-model';
 import { TasksQueryModel } from 'src/app/query-models/tasks.query-model';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { TasksModel } from '../../models/tasks.model';
@@ -22,7 +22,7 @@ export class TasksComponent {
     map(([tasks, employees, checkList ]) => {
       const employeeMap = employees.reduce((acc, curr) => {
         return {...acc, [curr.id]: curr}
-      }, {} as Record<string, EmployeeModel>)
+      }, {} as Record<string, EmployeeQueryModel>)
       const checkListMap = checkList.reduce((acc, curr) => {
         return {...acc, [curr.id]: curr.isDone}
       }, {} as Record<string, boolean>)

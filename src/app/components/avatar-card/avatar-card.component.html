@@ -1,12 +1,12 @@
 <div class="content-list">
-    <a class="media media-member" [routerLink]="'/employees/'+id">
-    <div class="media media-member">
-        <img alt="{{fullname}}" src="{{avatarUrl}}" class="avatar avatar-lg">
-        <div class="media-body">
-            <h6 class="mb-0 H6-filter-by-text" data-filter-by="text">{{fullname}}</h6>
-            <span data-filter-by="text" class="text-body SPAN-filter-by-text">{{position}}</span>
-        </div>
-    </div> 
-</a>
+    <div class="media">
+        <a class="media media-member" [routerLink]="'/employees/'+id">
+            <img alt="{{fullname}}" src="{{avatarUrl}}" class="avatar avatar-lg">
+            <div class="media-body">
+                <h6 class="mb-0 H6-filter-by-text" data-filter-by="text">{{fullname}}</h6>
+                <span data-filter-by="text" class="text-body SPAN-filter-by-text">{{position}}</span>
+            </div>
+        </a> 
+    </div>
 </div>
 

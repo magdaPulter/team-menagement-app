@@ -1,5 +1,5 @@
 <div class="page-header" *ngFor="let team of teamDetails$ | async">
-    <h1>{{team.name}}</h1>
+    <h3>{{team.name}}</h3>
     <p class="lead">{{team.description}}</p>
     <div class="d-flex align-items-center">
         <app-avatar-list 
@@ -13,7 +13,7 @@
     [tabsetTitle]="'Projects'">
 </app-tabset>
 
-<div class="tab-content">
+<div class="tab-content mt-3">
     <div class="content-list">
         <div class="row content-list-head">
             <div class="col-auto">
@@ -29,6 +29,7 @@
                 [percentage]="project.percentage"
                 [isVisible]="false"
                 >    
+                <br>
             </app-project-card>
         </div>
     </div>

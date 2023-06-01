@@ -2,7 +2,7 @@
     <div class="media">
       <img alt="Image" src="{{employee.avatarUrl}}" class="avatar avatar-lg mt-1">
       <div class="media-body ml-3">
-        <h1 class="mb-0">{{employee.firstName}}{{employee.lastName}}</h1>
+        <h1 class="mb-0">{{employee.firstName}} {{employee.lastName}}</h1>
         <p class="lead">{{employee.position}}</p>
       </div>
     </div>
@@ -12,13 +12,14 @@
     [tabsetTitle]="'Teams'">
   </app-tabset>
 
-  <div class="tab-content">
+  <div class="tab-content mt-3">
     <div class="content-list">
         <div class="row content-list-head">
           <div class="col-auto">
             <h3>Teams</h3>
           </div>
         </div>
+        
         <div class="content-list-body row">
             <app-team-card 
                 class="col-lg-6" 

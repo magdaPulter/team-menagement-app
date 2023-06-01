@@ -1,15 +1,15 @@
-
-<div class="card">
-    <div class="card-body">
+<div class="card card-team">
+  <div class="card-body">
+    <div class="card-title">
       <a [routerLink]="'/teams/'+id">
-          <h5 class="card-title">{{ title }}</h5>
-          <p class="card-text">{{ projects }} Projects, {{ members }} Members</p> 
-          <app-avatar-list 
+        <h5>{{ title }}</h5>
+      </a>
+      <span>{{ projects }} Projects, {{ members }}  Members</span>
+    </div>
+    <app-avatar-list 
             *ngIf="isAvatar"
             [members]="teamMembers">
-          </app-avatar-list>
-      </a>   
+    </app-avatar-list>
   </div>
 </div>
-
 

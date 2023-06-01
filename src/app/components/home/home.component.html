@@ -5,10 +5,10 @@
 <hr>
 
 <div class="content-list">
-    <div class="row content-list-head">
+    <div class="row">
         <h1>Teams</h1>
     </div>
-    <div class="content-list-body row ">
+    <div class="content-list-body row">
         <app-team-card 
             class="col-lg-6" 
             *ngFor="let team of teams$ | async" 
@@ -18,16 +18,18 @@
             [members]="team.members.length">
         </app-team-card>
     </div>
-    <div class="row content-list-head">
+    <div class="row">
         <h1>Members</h1>
     </div>
     <div class="content-list-body row">
-        <app-avatar-card class="col-6" *ngFor="let employee of employees$ | async"
-        [fullname]="employee.firstName + employee.lastName"
-        [avatarUrl]="employee.avatarUrl"
-        [position]="employee.position"
-        [id]="employee.id"
-        >
+        <app-avatar-card 
+            class="col-6" 
+            *ngFor="let employee of employees$ | async"
+            [fullname]="employee.firstName + employee.lastName"
+            [avatarUrl]="employee.avatarUrl"
+            [position]="employee.position"
+            [id]="employee.id"
+            >
         </app-avatar-card>
     </div>
 </div>

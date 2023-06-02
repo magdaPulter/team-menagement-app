@@ -1,6 +1,11 @@
-  <!-- active  -->
   <ul class="nav nav-tabs nav-fill" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="teams" aria-selected="false">{{tabsetTitle}}</a>
+    <li class="nav-item" *ngFor="let title of tabsetTitle" >
+      <a class="nav-link" 
+      data-toggle="tab" 
+      role="tab" 
+      aria-controls="projects" 
+      aria-selected="true"
+      [appTabset]="isActive"
+      >{{title}}</a>
     </li>
   </ul>

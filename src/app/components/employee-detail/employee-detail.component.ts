@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
+import { ProjectModel } from 'src/app/models/project.model';
 import { EmployeeModel } from '../../models/employee.model';
 import { TeamModel } from '../../models/team.model';
 import { EmployeeService } from '../../services/employee.service';
@@ -31,10 +32,23 @@ export class EmployeeDetailComponent {
     })
   )
 
+  readonly projectInTeam$: Observable<ProjectModel[]> = this.memberTeam$.pipe(
+    switchMap((teams) => teams.map(team => team.projects))
+  )
+
+  readonly categoryTitle$: Observable<string[]> = of(['Teams', 'Projects'])
+  
+  private _categorySubject: BehaviorSubject<string> = new BehaviorSubject<string>('Teams');
+  public category$: Observable<string> = this._categorySubject.asObservable();
+
   constructor(
-    private _activatedRoute: ActivatedRoute, 
-    private _employeeService: EmployeeService, 
+    private _activatedRoute: ActivatedRoute,
+    private _employeeService: EmployeeService,
     private _teamService: TeamService) {
-     
-    }
+  }
+
+  onCliked(title: string){
+    this._categorySubject.next(title)
+  }
+
 }

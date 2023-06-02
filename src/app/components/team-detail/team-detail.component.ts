@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { combineLatest, map, Observable, switchMap } from 'rxjs';
+import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { EmployeeModel } from 'src/app/models/employee.model';
 import { ProjectModel } from 'src/app/models/project.model';
 import { TeamModel } from '../../models/team.model';
@@ -26,7 +26,8 @@ export class TeamDetailComponent {
     switchMap((teams) => teams.map(team => team.projects))
   )
 
+  readonly title$: Observable<string[]> = of(['Project'])
+
   constructor(private _teamService: TeamService, private _activatedRoute: ActivatedRoute) {
-    // this.teamDetails$.subscribe(value => console.log(value.map(v => v.projects)))
   }
 }

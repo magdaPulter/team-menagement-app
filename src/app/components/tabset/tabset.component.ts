@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, ViewEncapsulation, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tabset',
@@ -7,5 +7,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabsetComponent {
-  @Input() tabsetTitle!: string
+  @Input() tabsetTitle!: string[]
+  @Input() isActive!: boolean
+
+
 }

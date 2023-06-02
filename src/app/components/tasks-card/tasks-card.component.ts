@@ -12,7 +12,7 @@ import { TasksService } from '../../services/tasks.service';
 })
 export class TasksCardComponent {
   @Input() title!: string
-  @Input() dueDate!: number
+  @Input() dueDate!: number | string
   @Input() checkList!: boolean[]
   @Input() percentage!: number
   @Input() members!: EmployeeViewModel[]

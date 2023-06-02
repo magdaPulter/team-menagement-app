@@ -10,7 +10,7 @@
 <hr>
 
 <app-tabset 
-    [tabsetTitle]="'Projects'">
+    [tabsetTitle]="(title$ | async)!">
 </app-tabset>
 
 <div class="tab-content mt-3">
@@ -25,11 +25,11 @@
                 class="col-lg-6" 
                 *ngFor="let project of projectsInTeam$ | async"
                 [title]="project.name"
-                [dueDate]="project.dueDate | dueDate"
+                [dueDate]="project.dueDate | dueDate: 'fullDate'"
                 [percentage]="project.percentage"
                 [isVisible]="false"
                 >    
-                <br>
+                
             </app-project-card>
         </div>
     </div>

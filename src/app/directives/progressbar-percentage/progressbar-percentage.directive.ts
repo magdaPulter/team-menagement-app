@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { MapModel } from 'src/app/models/map.model';
 
 @Directive({ selector: '[progressbarPercentage]' })
 export class ProgressbarPercentageDirective implements OnInit {
@@ -15,11 +16,11 @@ export class ProgressbarPercentageDirective implements OnInit {
   }
 
   ngOnInit() {
-    const colorClass: {value: number, class:string} = Object.entries(this.colorsClassMap)
+    const colorClass: MapModel = Object.entries(this.colorsClassMap)
     .filter(([_,v]) => +this.progressbarPercentage > v[0] && +this.progressbarPercentage <= v[1])
     .map(([k,v]) => ({
-      value: Math.trunc(+this.progressbarPercentage/v[0]),
-      class: k
+      value: +this.progressbarPercentage/v[0],
+      name: k
     }))[0]
     
 
@@ -32,7 +33,7 @@ export class ProgressbarPercentageDirective implements OnInit {
     if(this.isColorChanged) {
       this._renderer2.addClass(
         this._elementRef.nativeElement, 
-        `${colorClass.class}`  
+        `${colorClass.name}`  
       )
     }
   }

@@ -3,7 +3,7 @@
 <app-tasks-card 
   *ngFor="let tasks of tasks$ | async"
   [title]="tasks.name"
-  [dueDate]="tasks.dueDate"
+  [dueDate]="tasks.dueDate | dueDate: 'fullDate'"
   [members]="tasks.members"
   [checkList]="tasks.checkListBoolean"
   [percentage]="tasks.checkListBoolean | checklist | checkListPercent">

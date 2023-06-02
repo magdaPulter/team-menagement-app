@@ -8,11 +8,30 @@
     </div>
   </div>
 
-  <app-tabset 
-    [tabsetTitle]="'Teams'">
-  </app-tabset>
+  <!-- <app-tabset
+    [isActive]="false"
+    [tabsetTitle]="(title$ | async)!"
+ >
+  </app-tabset> -->
 
-  <div class="tab-content mt-3">
+  <div *ngIf="category$ | async as categoryTitle">
+    <ul  
+    class="nav nav-tabs nav-fill" 
+    role="tablist">
+    <li *ngFor="let title of categoryTitle$ | async" class="nav-item">
+      <a class="nav-link" 
+      data-toggle="tab" 
+      role="tab" 
+      aria-controls="projects" 
+      aria-selected="true"
+      (click)="onCliked(title)"
+      [ngStyle]="{cursor: 'pointer'}"
+      [ngClass]="{active: title===categoryTitle}"
+       >{{title}} </a>
+    </li>
+  </ul>
+
+  <div *ngIf="categoryTitle === 'Teams'" class="tab-content mt-3">
     <div class="content-list">
         <div class="row content-list-head">
           <div class="col-auto">
@@ -35,3 +54,29 @@
     </div>
   </div>
 
+  <div *ngIf="categoryTitle === 'Projects'" class="tab-content mt-3">
+    <div class="content-list">
+        <div class="row content-list-head">
+          <div class="col-auto">
+            <h3>Project</h3>
+          </div>
+        </div>    
+      </div>
+
+
+      <div class="content-list-body row">
+        <app-project-card 
+            class="col-lg-6" 
+            *ngFor="let project of  projectInTeam$ | async"
+            [title]="project.name"
+            [dueDate]="project.dueDate | dueDate: 'dueDate'"
+            [percentage]="project.percentage"
+            [isVisible]="false"
+            >    
+            <br>
+        </app-project-card>
+    </div>
+  </div>
+
+
+  </div>

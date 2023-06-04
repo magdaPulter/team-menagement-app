@@ -1,82 +1,50 @@
 <div class="page-header mb-4" *ngFor="let employee of employeeDetail$ | async">
-    <div class="media">
-      <img alt="Image" src="{{employee.avatarUrl}}" class="avatar avatar-lg mt-1">
-      <div class="media-body ml-3">
-        <h1 class="mb-0">{{employee.firstName}} {{employee.lastName}}</h1>
-        <p class="lead">{{employee.position}}</p>
-      </div>
+  <div class="media">
+    <img alt="Image" src="{{employee.avatarUrl}}" class="avatar avatar-lg mt-1">
+    <div class="media-body ml-3">
+      <h1 class="mb-0">{{employee.firstName}} {{employee.lastName}}</h1>
+      <p class="lead">{{employee.position}}</p>
     </div>
   </div>
+</div>
 
-  <!-- <app-tabset
-    [isActive]="false"
-    [tabsetTitle]="(title$ | async)!"
- >
-  </app-tabset> -->
 
-  <div *ngIf="category$ | async as categoryTitle">
-    <ul  
-    class="nav nav-tabs nav-fill" 
-    role="tablist">
-    <li *ngFor="let title of categoryTitle$ | async" class="nav-item">
-      <a class="nav-link" 
-      data-toggle="tab" 
-      role="tab" 
-      aria-controls="projects" 
-      aria-selected="true"
-      (click)="onCliked(title)"
-      [ngStyle]="{cursor: 'pointer'}"
-      [ngClass]="{active: title===categoryTitle}"
-       >{{title}} </a>
-    </li>
-  </ul>
+<div *ngIf="category$ | async as categoryTitle">
+  <app-tabset [tabsetTitle]="(title$ | async)!" (isActive)="onActivated($event)" [categoryTitle]="categoryTitle">
+  </app-tabset>
 
   <div *ngIf="categoryTitle === 'Teams'" class="tab-content mt-3">
     <div class="content-list">
-        <div class="row content-list-head">
-          <div class="col-auto">
-            <h3>Teams</h3>
-          </div>
+      <div class="row content-list-head">
+        <div class="col-auto">
+          <h3>Teams</h3>
         </div>
-        
-        <div class="content-list-body row">
-            <app-team-card 
-                class="col-lg-6" 
-                *ngFor="let team of memberTeam$ | async" 
-                [title]="team.name"
-                [id]="team.id"
-                [projects]="team.projects.length" 
-                [members]="team.members.length"
-                [teamMembers]="team.members"
-                [isAvatar]="true">
-            </app-team-card>
-        </div>
+      </div>
+
+      <div class="content-list-body row">
+        <app-team-card class="col-lg-6" *ngFor="let team of memberTeam$ | async" [title]="team.name" [id]="team.id"
+          [projects]="team.projects.length" [members]="team.members.length" [teamMembers]="team.members"
+          [isAvatar]="true">
+        </app-team-card>
+      </div>
     </div>
   </div>
 
   <div *ngIf="categoryTitle === 'Projects'" class="tab-content mt-3">
     <div class="content-list">
-        <div class="row content-list-head">
-          <div class="col-auto">
-            <h3>Project</h3>
-          </div>
-        </div>    
+      <div class="row content-list-head">
+        <div class="col-auto">
+          <h3>Project</h3>
+        </div>
       </div>
+    </div>
 
 
-      <div class="content-list-body row">
-        <app-project-card 
-            class="col-lg-6" 
-            *ngFor="let project of  projectInTeam$ | async"
-            [title]="project.name"
-            [dueDate]="project.dueDate | dueDate: 'dueDate'"
-            [percentage]="project.percentage"
-            [isVisible]="false"
-            >    
-            <br>
-        </app-project-card>
+    <div class="content-list-body row">
+      <app-project-card class="col-lg-6" *ngFor="let project of  projectInTeam$ | async" [title]="project.name"
+        [dueDate]="project.dueDate | dueDate: 'dueDate'" [percentage]="project.percentage" [isVisible]="false">
+        <br>
+      </app-project-card>
     </div>
   </div>
-
-
-  </div>
+</div>

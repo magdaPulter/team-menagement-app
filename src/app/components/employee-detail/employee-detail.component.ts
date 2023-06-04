@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map, shareReplay, switchMap } from 'rxjs/operators';
 import { ProjectModel } from 'src/app/models/project.model';
 import { EmployeeModel } from '../../models/employee.model';
 import { TeamModel } from '../../models/team.model';
@@ -29,14 +29,15 @@ export class EmployeeDetailComponent {
   ]).pipe(
     map(([teams, params]) => {
       return teams.filter(team => team.members.find(member => member.id.toString() === params['id']))
-    })
+    }),
+    shareReplay(1)
   )
 
   readonly projectInTeam$: Observable<ProjectModel[]> = this.memberTeam$.pipe(
     switchMap((teams) => teams.map(team => team.projects))
   )
 
-  readonly categoryTitle$: Observable<string[]> = of(['Teams', 'Projects'])
+  readonly title$: Observable<string[]> = of(['Teams', 'Projects'])
   
   private _categorySubject: BehaviorSubject<string> = new BehaviorSubject<string>('Teams');
   public category$: Observable<string> = this._categorySubject.asObservable();
@@ -46,9 +47,9 @@ export class EmployeeDetailComponent {
     private _employeeService: EmployeeService,
     private _teamService: TeamService) {
   }
-
-  onCliked(title: string){
-    this._categorySubject.next(title)
+  onActivated(title: string){
+   this._categorySubject.next(title)
   }
+ 
 
 }

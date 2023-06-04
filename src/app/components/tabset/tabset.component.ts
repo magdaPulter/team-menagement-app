@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, Output, ViewEncapsulation, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-tabset',
   templateUrl: './tabset.component.html',
@@ -8,7 +9,11 @@ import { ChangeDetectionStrategy, Component, Input, Output, ViewEncapsulation, E
 })
 export class TabsetComponent {
   @Input() tabsetTitle!: string[]
-  @Input() isActive!: boolean
+  @Output() isActive: EventEmitter<string> = new EventEmitter<string>()
+  @Input() categoryTitle!: string
 
 
+  onCliked(title: string){
+    this.isActive.emit(title)
+  }
 }

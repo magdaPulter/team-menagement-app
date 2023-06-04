@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
-import { EmployeeModel } from 'src/app/models/employee.model';
-import { ProjectModel } from 'src/app/models/project.model';
+import { Observable, combineLatest, of } from 'rxjs';
+import { filter, map, shareReplay, switchMap } from 'rxjs/operators';
 import { TeamModel } from '../../models/team.model';
+import { ProjectModel } from '../../models/project.model';
 import { TeamService } from '../../services/team.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class TeamDetailComponent {
   readonly teamDetails$: Observable<TeamModel[]> = this.activatedRoute$.pipe(
     switchMap(param => this._teamService.getAll().pipe(map((teams) => {
       return teams.filter(team => team.id === param['id'])
-    })))
+    }))),
+    shareReplay(1)
   )
 
   readonly projectsInTeam$: Observable<ProjectModel[]> = this.teamDetails$.pipe(

@@ -1,4 +1,4 @@
-<div class="page-header" *ngFor="let team of teamDetails$ | async">
+<div class="page-header" *ngFor="let team of teamDetails$ | async" >
     <h3>{{team.name}}</h3>
     <p class="lead">{{team.description}}</p>
     <div class="d-flex align-items-center">
@@ -10,7 +10,9 @@
 <hr>
 
 <app-tabset 
-    [tabsetTitle]="(title$ | async)!">
+    [tabsetTitle]="(title$ | async)!"
+    [categoryTitle]="'Project'"
+>
 </app-tabset>
 
 <div class="tab-content mt-3">

@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'employees', component: EmployeesComponent },
   { path: '', component: HomeComponent },
   { path: 'employees/:id', component: EmployeeDetailComponent },
-  { path: 'teams/:id', component: TeamDetailComponent }
+  { path: 'teams/:id', component: TeamDetailComponent },
 ];
 
 @NgModule({
@@ -34,7 +34,7 @@ const routes: Routes = [
     EmployeesComponentModule,
     HomeComponentModule,
     EmployeeDetailComponentModule,
-    TeamDetailComponentModule
+    TeamDetailComponentModule,
   ],
   exports: [RouterModule],
 })

@@ -5,7 +5,6 @@ export class IsCLickedDirective implements OnChanges{
   @Input() isCLicked!: boolean
 
   constructor(private _renderer2: Renderer2, private _elementRef: ElementRef) {
-    console.log(this.isCLicked)
   }
 
   ngOnChanges(changes: SimpleChanges): void {

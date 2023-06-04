@@ -10,7 +10,10 @@
 
 
 <div *ngIf="category$ | async as categoryTitle">
-  <app-tabset [tabsetTitle]="(title$ | async)!" (isActive)="onActivated($event)" [categoryTitle]="categoryTitle">
+  <app-tabset 
+    [tabsetTitle]="(title$ | async)!" 
+    (isActive)="onActivated($event)" 
+    [categoryTitle]="categoryTitle">
   </app-tabset>
 
   <div *ngIf="categoryTitle === 'Teams'" class="tab-content mt-3">
@@ -22,7 +25,11 @@
       </div>
 
       <div class="content-list-body row">
-        <app-team-card class="col-lg-6" *ngFor="let team of memberTeam$ | async" [title]="team.name" [id]="team.id"
+        <app-team-card 
+          class="col-lg-6" 
+          *ngFor="let team of memberTeam$ | async" 
+          [title]="team.name" 
+          [id]="team.id"
           [projects]="team.projects.length" [members]="team.members.length" [teamMembers]="team.members"
           [isAvatar]="true">
         </app-team-card>
@@ -41,9 +48,17 @@
 
 
     <div class="content-list-body row">
-      <app-project-card class="col-lg-6" *ngFor="let project of  projectInTeam$ | async" [title]="project.name"
-        [dueDate]="project.dueDate | dueDate: 'dueDate'" [percentage]="project.percentage" [isVisible]="false">
-        <br>
+      <app-project-card 
+        class="col-lg-6" 
+        *ngFor="let project of  projectInTeam$ | async" 
+        [title]="project.name"
+        [dueDate]="project.dueDate | dueDate: 'dueDate'" 
+        [percentage]="project.percentage" 
+        [isVisible]="false">
+        <div class="d-flex align-items-center">
+          <i class="material-icons mr-1">playlist_add_check</i>
+          <span class="text-small">3/6</span>
+        </div>
       </app-project-card>
     </div>
   </div>

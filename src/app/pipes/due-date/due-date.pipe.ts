@@ -16,7 +16,7 @@ export class DueDatePipe implements PipeTransform {
     } else {
 
       const dateMap: Record<string,number[]> ={
-        'day': [1, 30],
+        'day': [0, 30],
         'month': [30, 12*30],
         'year': [12*30, Infinity]
       }
@@ -30,9 +30,11 @@ export class DueDatePipe implements PipeTransform {
         value: Math.trunc(+days/v[0]),
         name: k
       }))[0]
-    
-    return `Due ${result.value} ${result.value === 1 ? result.name : result.name + 's'}`
-    }
 
+    return !result.value 
+    ? '0 days' 
+    : `Due ${result.value} ${result.value === 1 ? result.name : result.name + 's'}`
+
+    }
   }
 }

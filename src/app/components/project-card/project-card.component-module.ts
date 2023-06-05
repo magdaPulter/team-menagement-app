@@ -6,7 +6,7 @@ import { ProgressBarComponentModule } from '../progress-bar/progress-bar.compone
 import { ProjectCardComponent } from './project-card.component';
 
 @NgModule({
-  imports: [DueDatePipeModule, ProgressbarPercentageDirectiveModule, ProgressBarComponentModule, CommonModule],
+  imports: [ProgressbarPercentageDirectiveModule, ProgressBarComponentModule, CommonModule],
   declarations: [ProjectCardComponent],
   providers: [],
   exports: [ProjectCardComponent]

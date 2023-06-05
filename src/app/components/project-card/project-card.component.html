@@ -11,6 +11,7 @@
       <h5>{{ title }}</h5>
     </div>
 
+   <ng-content select="[br]"></ng-content>
     <div class="card-meta d-flex justify-content-between">
       <ng-content></ng-content>
       <span>{{ dueDate }}</span>

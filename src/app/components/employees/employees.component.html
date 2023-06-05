@@ -4,7 +4,7 @@
   <app-avatar-card 
     class="col-6" 
     *ngFor="let employee of employees$ | async"
-    [fullname]="employee.firstName + employee.lastName"
+    [fullname]="employee.firstName + ' ' + employee.lastName"
     [avatarUrl]="employee.avatarUrl"
     [position]="employee.position"
     [id]="employee.id"

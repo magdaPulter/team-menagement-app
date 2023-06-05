@@ -50,6 +50,4 @@ export class EmployeeDetailComponent {
   onActivated(title: string){
    this._categorySubject.next(title)
   }
- 
-
 }

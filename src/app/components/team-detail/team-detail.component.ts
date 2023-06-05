@@ -27,7 +27,7 @@ export class TeamDetailComponent {
     switchMap((teams) => teams.map(team => team.projects))
   )
 
-  readonly title$: Observable<string[]> = of(['Project'])
+  readonly title$: Observable<string[]> = of(['Projects'])
 
   constructor(private _teamService: TeamService, private _activatedRoute: ActivatedRoute) {
   }

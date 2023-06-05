@@ -11,7 +11,7 @@
 
 <app-tabset 
     [tabsetTitle]="(title$ | async)!"
-    [categoryTitle]="'Project'">
+    [categoryTitle]="'Projects'">
 </app-tabset>
 
 <div class="tab-content mt-3">
@@ -30,7 +30,7 @@
                 [percentage]="project.percentage"
                 [isVisible]="false"
                 >    
-                
+                <br br>
             </app-project-card>
         </div>
     </div>

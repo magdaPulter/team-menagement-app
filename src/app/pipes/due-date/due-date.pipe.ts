@@ -15,26 +15,10 @@ export class DueDatePipe implements PipeTransform {
       return `Due on ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
     } else {
 
-      const dateMap: Record<string,number[]> ={
-        'day': [0, 30],
-        'month': [30, 12*30],
-        'year': [12*30, Infinity]
-      }
-      
       const currentDate: Date = new Date()
-      const days = (Math.floor((new Date(value).getTime() - currentDate.getTime()) / 1000 / 60 / 60 / 24)).toString()
-      
-      const result: MapModel = Object.entries(dateMap)
-      .filter(([_,v]) => +days >= v[0] && +days < v[1])
-      .map(([k,v]) => ({
-        value: Math.trunc(+days/v[0]),
-        name: k
-      }))[0]
+      const days = (Math.floor((new Date(value).getTime() - currentDate.getTime()) / 1000 / 60 / 60 / 24))
 
-    return !result.value 
-    ? '0 days' 
-    : `Due ${result.value} ${result.value === 1 ? result.name : result.name + 's'}`
-
+    return days===1 ? `Due 1 day` : `Due ${days} days`
     }
   }
 }

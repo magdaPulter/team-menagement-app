@@ -1,4 +1,4 @@
-<div class="page-header mb-4" *ngFor="let employee of employeeDetail$ | async">
+<div class="page-header mb-4" *ngIf="employeeDetail$ | async as employee">
   <div class="media">
     <img alt="Image" src="{{employee.avatarUrl}}" class="avatar avatar-lg mt-1">
     <div class="media-body ml-3">
@@ -7,7 +7,6 @@
     </div>
   </div>
 </div>
-
 
 <div *ngIf="category$ | async as categoryTitle">
   <app-tabset 
@@ -27,7 +26,7 @@
       <div class="content-list-body row">
         <app-team-card 
           class="col-lg-6" 
-          *ngFor="let team of memberTeam$ | async" 
+          *ngFor="let team of employeeTeam$ | async" 
           [title]="team.name" 
           [id]="team.id"
           [projects]="team.projects.length" [members]="team.members.length" [teamMembers]="team.members"
@@ -46,11 +45,10 @@
       </div>
     </div>
 
-
     <div class="content-list-body row">
       <app-project-card 
         class="col-lg-6" 
-        *ngFor="let project of  projectInTeam$ | async" 
+        *ngFor="let project of  employeeProjects$ | async" 
         [title]="project.name"
         [dueDate]="project.dueDate | dueDate: 'dueDate'" 
         [percentage]="project.percentage" 
@@ -58,9 +56,9 @@
         <br br>
         <div class="d-flex align-items-center">
           <i class="material-icons mr-1">playlist_add_check</i>
-          <span class="text-small">3/6</span>
+          <span class="text-small">{{project.checkListBoolean | checklist}}</span>
         </div>
       </app-project-card>
     </div>
   </div>
-</div>
+</div> 

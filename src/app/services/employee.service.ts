@@ -11,4 +11,8 @@ export class EmployeeService {
   getAll(): Observable<EmployeeModel[]> {
     return this._httpClient.get<EmployeeModel[]> ('https://646f899709ff19b120876fb8.mockapi.io/employees');
   }
+
+  getOne(id: string): Observable<EmployeeModel> {
+    return this._httpClient.get<EmployeeModel>(`https://646f899709ff19b120876fb8.mockapi.io/employees/${id}`);
+  }
 }

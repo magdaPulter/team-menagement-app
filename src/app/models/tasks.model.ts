@@ -3,4 +3,5 @@ export interface TasksModel {
   readonly dueDate: number;
   readonly checkList: string[];
   readonly assigneeIds: string[];
+  readonly projectId: string;
 }

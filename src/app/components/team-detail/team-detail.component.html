@@ -1,4 +1,5 @@
-<div class="page-header" *ngFor="let team of teamDetails$ | async" >
+
+ <div class="page-header" *ngIf="teamDetails$ | async as team">
     <h3>{{team.name}}</h3>
     <p class="lead">{{team.description}}</p>
     <div class="d-flex align-items-center">
@@ -34,4 +35,4 @@
             </app-project-card>
         </div>
     </div>
-</div>
+</div> 

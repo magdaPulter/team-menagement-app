@@ -11,4 +11,8 @@ export class TeamService {
   getAll(): Observable<TeamModel[]> {
     return this._httpClient.get<TeamModel[]>('https://646f899709ff19b120876fb8.mockapi.io/teams');
   }
+
+  getOne(id:string): Observable<TeamModel> {
+    return this._httpClient.get<TeamModel>(`https://646f899709ff19b120876fb8.mockapi.io/teams/${id}`);
+  }
 }

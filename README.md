@@ -2,6 +2,10 @@
 
 This project was made as part of the course Lowgular.
 
+## Netlify
+
+See the page on Netlify: [NgBootstrapStarterKit](https://glistening-cuchufli-cfe64c.netlify.app/)
+
 ## Technologies
 
 This project was generated with 

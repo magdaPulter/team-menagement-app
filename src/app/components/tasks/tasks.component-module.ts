@@ -8,10 +8,9 @@ import { HeaderComponentModule } from '../header/header.component-module';
 import { DueDatePipeModule } from 'src/app/pipes/due-date/due-date.pipe-module';
 
 @NgModule({
-  imports: [TasksCardComponentModule, CommonModule, ChecklistPipeModule,CheckListPercentPipeModule, HeaderComponentModule, DueDatePipeModule],
-  declarations: [TasksComponent],
-  providers: [],
-  exports: [TasksComponent]
+    imports: [TasksCardComponentModule, CommonModule, ChecklistPipeModule, CheckListPercentPipeModule, HeaderComponentModule, DueDatePipeModule, TasksComponent],
+    providers: [],
+    exports: [TasksComponent]
 })
 export class TasksComponentModule {
 }

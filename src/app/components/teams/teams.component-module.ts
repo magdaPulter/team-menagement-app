@@ -5,10 +5,9 @@ import { TeamsComponent } from './teams.component';
 import { HeaderComponentModule } from '../header/header.component-module';
 
 @NgModule({
-  imports: [TeamCardComponentModule, CommonModule, HeaderComponentModule],
-  declarations: [TeamsComponent],
-  providers: [],
-  exports: [TeamsComponent]
+    imports: [TeamCardComponentModule, CommonModule, HeaderComponentModule, TeamsComponent],
+    providers: [],
+    exports: [TeamsComponent]
 })
 export class TeamsComponentModule {
 }

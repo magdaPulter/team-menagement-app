@@ -5,10 +5,9 @@ import { AvatarListComponentModule } from '../avatar-list/avatar-list.component-
 import { TeamCardComponent } from './team-card.component';
 
 @NgModule({
-  imports: [CommonModule, AvatarListComponentModule,RouterModule],
-  declarations: [TeamCardComponent],
-  providers: [],
-  exports: [TeamCardComponent]
+    imports: [CommonModule, AvatarListComponentModule, RouterModule, TeamCardComponent],
+    providers: [],
+    exports: [TeamCardComponent]
 })
 export class TeamCardComponentModule {
 }

@@ -5,12 +5,20 @@ import { TasksQueryModel } from 'src/app/query-models/tasks.query-model';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { TasksModel } from '../../models/tasks.model';
 import { TasksService } from '../../services/tasks.service';
+import { DueDatePipe } from '../../pipes/due-date/due-date.pipe';
+import { CheckListPercentPipe } from '../../pipes/check-list-percent/check-list-percent.pipe';
+import { ChecklistPipe } from '../../pipes/checklist/checklist.pipe';
+import { TasksCardComponent } from '../tasks-card/tasks-card.component';
+import { NgFor, AsyncPipe } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-tasks',
+    templateUrl: './tasks.component.html',
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [HeaderComponent, NgFor, TasksCardComponent, AsyncPipe, ChecklistPipe, CheckListPercentPipe, DueDatePipe]
 })
 export class TasksComponent {
   

@@ -9,10 +9,9 @@ import { DueDatePipeModule } from 'src/app/pipes/due-date/due-date.pipe-module';
 import { ChecklistPipeModule } from 'src/app/pipes/checklist/checklist.pipe-module';
 
 @NgModule({
-  imports: [CommonModule, TabsetComponentModule, TeamCardComponentModule, AvatarListComponentModule, ProjectCardComponentModule,DueDatePipeModule, ChecklistPipeModule],
-  declarations: [EmployeeDetailComponent],
-  providers: [],
-  exports: [EmployeeDetailComponent]
+    imports: [CommonModule, TabsetComponentModule, TeamCardComponentModule, AvatarListComponentModule, ProjectCardComponentModule, DueDatePipeModule, ChecklistPipeModule, EmployeeDetailComponent],
+    providers: [],
+    exports: [EmployeeDetailComponent]
 })
 export class EmployeeDetailComponentModule {
 }

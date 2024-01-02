@@ -8,10 +8,9 @@ import { ProjectCardComponentModule } from '../project-card/project-card.compone
 import { DueDatePipeModule } from 'src/app/pipes/due-date/due-date.pipe-module';
 
 @NgModule({
-  imports: [CommonModule, AvatarListComponentModule, TabsetComponentModule, ProjectCardComponentModule, DueDatePipeModule],
-  declarations: [TeamDetailComponent],
-  providers: [],
-  exports: [TeamDetailComponent]
+    imports: [CommonModule, AvatarListComponentModule, TabsetComponentModule, ProjectCardComponentModule, DueDatePipeModule, TeamDetailComponent],
+    providers: [],
+    exports: [TeamDetailComponent]
 })
 export class TeamDetailComponentModule {
 }

@@ -9,10 +9,9 @@ import { ProgressBarComponentModule } from '../progress-bar/progress-bar.compone
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, ChecklistPipeModule,CheckListPercentPipeModule, ProgressbarPercentageDirectiveModule, AvatarListComponentModule, ProgressBarComponentModule, RouterModule],
-  declarations: [TasksCardComponent],
-  providers: [],
-  exports: [TasksCardComponent]
+    imports: [CommonModule, ChecklistPipeModule, CheckListPercentPipeModule, ProgressbarPercentageDirectiveModule, AvatarListComponentModule, ProgressBarComponentModule, RouterModule, TasksCardComponent],
+    providers: [],
+    exports: [TasksCardComponent]
 })
 export class TasksCardComponentModule {
 }

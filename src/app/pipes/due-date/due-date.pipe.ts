@@ -1,7 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { MapModel } from 'src/app/models/map.model';
 
-@Pipe({ name: 'dueDate' })
+@Pipe({
+    name: 'dueDate',
+    standalone: true
+})
 export class DueDatePipe implements PipeTransform {
   transform(value: string | number, format: string): string {
 

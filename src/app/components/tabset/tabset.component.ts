@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input, Output, ViewEncapsulation, EventEmitter } from '@angular/core';
+import { NgFor, NgStyle, NgClass } from '@angular/common';
 
 
 @Component({
-  selector: 'app-tabset',
-  templateUrl: './tabset.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-tabset',
+    templateUrl: './tabset.component.html',
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgFor, NgStyle, NgClass]
 })
 export class TabsetComponent {
   @Input() tabsetTitle!: string[]

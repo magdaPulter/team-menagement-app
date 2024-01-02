@@ -7,10 +7,9 @@ import { HomeComponent } from './home.component';
 import { AvatarCardComponentModule } from '../avatar-card/avatar-card.component-module';
 
 @NgModule({
-  imports: [TeamsComponentModule, EmployeesComponentModule, TeamCardComponentModule, CommonModule, AvatarCardComponentModule],
-  declarations: [HomeComponent],
-  providers: [],
-  exports: [HomeComponent]
+    imports: [TeamsComponentModule, EmployeesComponentModule, TeamCardComponentModule, CommonModule, AvatarCardComponentModule, HomeComponent],
+    providers: [],
+    exports: [HomeComponent]
 })
 export class HomeComponentModule {
 }

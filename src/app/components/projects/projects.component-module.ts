@@ -7,10 +7,9 @@ import { HeaderComponentModule } from '../header/header.component-module';
 import { DueDatePipeModule } from 'src/app/pipes/due-date/due-date.pipe-module';
 
 @NgModule({
-  imports: [ProjectCardComponentModule, CommonModule, DueDatePipeModule, ProgressbarPercentageDirectiveModule, HeaderComponentModule],
-  declarations: [ProjectsComponent],
-  providers: [],
-  exports: [ProjectsComponent]
+    imports: [ProjectCardComponentModule, CommonModule, DueDatePipeModule, ProgressbarPercentageDirectiveModule, HeaderComponentModule, ProjectsComponent],
+    providers: [],
+    exports: [ProjectsComponent]
 })
 export class ProjectsComponentModule {
 }

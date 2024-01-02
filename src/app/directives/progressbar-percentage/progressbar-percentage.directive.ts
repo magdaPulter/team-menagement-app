@@ -1,7 +1,10 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { MapModel } from 'src/app/models/map.model';
 
-@Directive({ selector: '[progressbarPercentage]' })
+@Directive({
+    selector: '[progressbarPercentage]',
+    standalone: true
+})
 export class ProgressbarPercentageDirective implements OnInit {
   @Input() progressbarPercentage!: string
   @Input() isColorChanged!: boolean

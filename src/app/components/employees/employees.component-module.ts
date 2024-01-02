@@ -5,10 +5,9 @@ import { EmployeesComponent } from './employees.component';
 import { HeaderComponentModule } from '../header/header.component-module';
 
 @NgModule({
-  imports: [AvatarCardComponentModule, CommonModule, HeaderComponentModule],
-  declarations: [EmployeesComponent],
-  providers: [],
-  exports: [EmployeesComponent]
+    imports: [AvatarCardComponentModule, CommonModule, HeaderComponentModule, EmployeesComponent],
+    providers: [],
+    exports: [EmployeesComponent]
 })
 export class EmployeesComponentModule {
 }

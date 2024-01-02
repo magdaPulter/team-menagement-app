@@ -10,12 +10,20 @@ import { EmployeeModel } from '../../models/employee.model';
 import { TeamModel } from '../../models/team.model';
 import { EmployeeService } from '../../services/employee.service';
 import { TeamService } from '../../services/team.service';
+import { ChecklistPipe } from '../../pipes/checklist/checklist.pipe';
+import { DueDatePipe } from '../../pipes/due-date/due-date.pipe';
+import { ProjectCardComponent } from '../project-card/project-card.component';
+import { TeamCardComponent } from '../team-card/team-card.component';
+import { TabsetComponent } from '../tabset/tabset.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-employee-detail',
-  templateUrl: './employee-detail.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-employee-detail',
+    templateUrl: './employee-detail.component.html',
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, TabsetComponent, NgFor, TeamCardComponent, ProjectCardComponent, AsyncPipe, DueDatePipe, ChecklistPipe]
 })
 export class EmployeeDetailComponent {
   readonly activatedRoute$: Observable<Params> = this._activatedRoute.params

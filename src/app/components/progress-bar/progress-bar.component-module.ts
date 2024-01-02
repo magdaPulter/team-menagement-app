@@ -4,10 +4,9 @@ import { ProgressbarPercentageDirectiveModule } from 'src/app/directives/progres
 import { ProgressBarComponent } from './progress-bar.component';
 
 @NgModule({
-  imports: [CommonModule, ProgressbarPercentageDirectiveModule],
-  declarations: [ProgressBarComponent],
-  providers: [],
-  exports: [ProgressBarComponent]
+    imports: [CommonModule, ProgressbarPercentageDirectiveModule, ProgressBarComponent],
+    providers: [],
+    exports: [ProgressBarComponent]
 })
 export class ProgressBarComponentModule {
 }

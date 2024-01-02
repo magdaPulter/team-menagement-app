@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { TabsetComponent } from './tabset.component';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [TabsetComponent],
-  providers: [],
-  exports: [TabsetComponent]
+    imports: [CommonModule, TabsetComponent],
+    providers: [],
+    exports: [TabsetComponent]
 })
 export class TabsetComponentModule {
 }

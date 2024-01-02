@@ -4,10 +4,9 @@ import { RouterModule } from '@angular/router';
 import { AvatarListComponent } from './avatar-list.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  declarations: [AvatarListComponent],
-  providers: [],
-  exports: [AvatarListComponent]
+    imports: [CommonModule, RouterModule, AvatarListComponent],
+    providers: [],
+    exports: [AvatarListComponent]
 })
 export class AvatarListComponentModule {
 }

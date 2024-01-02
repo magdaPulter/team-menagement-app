@@ -5,10 +5,9 @@ import { IsCLickedDirectiveModule } from '../../directives/is-clicked/is-clicked
 import { MainContinerComponent } from './main-continer.component';
 
 @NgModule({
-  imports: [RouterModule, IsCLickedDirectiveModule, CommonModule],
-  declarations: [MainContinerComponent],
-  providers: [],
-  exports: [MainContinerComponent]
+    imports: [RouterModule, IsCLickedDirectiveModule, CommonModule, MainContinerComponent],
+    providers: [],
+    exports: [MainContinerComponent]
 })
 export class MainContinerComponentModule {
 }

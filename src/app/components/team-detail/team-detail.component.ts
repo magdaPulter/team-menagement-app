@@ -6,12 +6,19 @@ import { TeamModel } from '../../models/team.model';
 import { ProjectModel } from '../../models/project.model';
 import { TeamService } from '../../services/team.service';
 import { ProjectService } from 'src/app/services/project.service';
+import { DueDatePipe } from '../../pipes/due-date/due-date.pipe';
+import { ProjectCardComponent } from '../project-card/project-card.component';
+import { TabsetComponent } from '../tabset/tabset.component';
+import { AvatarListComponent } from '../avatar-list/avatar-list.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-team-detail',
-  templateUrl: './team-detail.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-team-detail',
+    templateUrl: './team-detail.component.html',
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, AvatarListComponent, TabsetComponent, NgFor, ProjectCardComponent, AsyncPipe, DueDatePipe]
 })
 export class TeamDetailComponent {
 

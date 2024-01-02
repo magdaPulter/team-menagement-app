@@ -1,6 +1,9 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 
-@Directive({ selector: '[isCLicked]' })
+@Directive({
+    selector: '[isCLicked]',
+    standalone: true
+})
 export class IsCLickedDirective implements OnChanges{
   @Input() isCLicked!: boolean
 

@@ -1,4 +1,4 @@
-# NgBootstrapStarterKit
+# Team Menagement app
 
 ## General info
 

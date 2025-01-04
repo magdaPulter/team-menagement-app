@@ -1,4 +1,4 @@
-# Team Menagement app
+# Team Management app
 
 ## General info
 
